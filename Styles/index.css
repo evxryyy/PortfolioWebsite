@@ -1,0 +1,207 @@
+body {
+    background-image: url("../Videos/background.gif");
+    background-size: cover; /* ★ Cette propriété est cruciale ★ */
+    background-position: center;
+    background-attachment: fixed; /* Optionnel : fixe le fond */
+    background-color: #000000;
+    background-repeat: no-repeat;
+    opacity: 0;
+    animation: fadeInPopup 0.2s  cubic-bezier(0.39, 0.575, 0.565, 1) 0.2s forwards;
+}
+
+.top-row_header_bar {
+    background-color: #0e0f0f;
+    display: flex;
+    border-radius: 8px;
+    opacity: 0.8;
+}
+
+.top-row_content {
+    padding: 20px;
+    display: flex;
+    gap: 20px;
+    width: 100%;
+    align-items: center; 
+}
+
+.home-page {
+    background-color: #0e0f0f;
+    margin: 20px;
+    display: flex;
+    border-radius: 8px;
+    align-items: flex-start;
+    padding: 20px;
+    gap: 20px;
+    flex-direction: column;
+    opacity: 0.8;
+}
+
+.card-page {
+    background-color: #0e0f0f;
+    margin: 20px;
+    display: flex;
+    border-radius: 8px;
+    align-items: flex-start;
+    padding: 20px;
+    gap: 20px;
+    flex-direction: column;
+    opacity: 0.8;
+}
+
+.card-subpage {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    background-color: #0e0f0f;
+    border-radius: 8px;
+    padding: 20px;
+    opacity: 0.8;
+    align-items: flex-start;
+}
+
+
+.card {
+    min-width: 250px;
+    min-height: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contact-page {
+    background-color: #0e0f0f;
+    margin: 20px;
+    display: flex;
+    border-radius: 8px;
+    align-items: flex-start;
+    padding: 20px;
+    gap: 20px;
+    flex-direction: column;
+    opacity: 0.8;
+}
+
+.content-text {
+    color: white;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    padding: 8px 16px;
+    border-radius: 4px;
+    text-decoration: none;
+    text-align: left !important;
+    display: block;
+    align-self: flex-start;
+}
+
+.content-text:hover {
+    background-color: transparent;
+}
+
+.content-work-text {
+    color: white;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    padding: 8px 16px;
+    margin: 10px;
+    border-radius: 4px;
+    text-decoration: none;
+    text-align: left !important;
+    display: block;
+    align-self: flex-start;
+}
+
+.img-clickable{
+    cursor: pointer;
+}
+
+.github_content {
+    background-color: #0e0f0f;
+    display: flex;
+    border-radius: 8px;
+    align-items: center;
+    padding-left: 10px;
+    flex-direction: row;
+    opacity: 0.8;
+    transition: background-color 0.3s ease;
+}
+
+.github_content:hover{
+    background-color: #666;
+}
+
+.roblox_content {
+    background-color: #0e0f0f;
+    display: flex;
+    border-radius: 8px;
+    align-items: center;
+    padding-left: 10px;
+    flex-direction: row;
+    opacity: 0.8;
+    transition: background-color 0.3s ease;
+}
+
+.roblox_content:hover{
+    background-color: #666;
+}
+
+.version_content {
+    background-color: #0e0f0f;
+    display: flex;
+    border-radius: 8px;
+    align-items: center;
+    padding-left: 10px;
+    flex-direction: row;
+    opacity: 0.8;
+    transition: background-color 0.3s ease;
+}
+
+.version_content:hover {
+    background-color: #666; 
+}
+
+.empty {
+    background-color: transparent;
+}
+
+.empty:hover{
+    background-color: transparent;
+}
+
+a {
+    color: white;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    padding: 8px 16px;
+    border-radius: 4px;
+    text-decoration: none;
+    background-color: transparent;
+    transition: background-color 0.3s ease;
+}
+
+a:hover {
+    background-color: #666;
+}
+
+label {
+    color: white;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    padding: 8px 16px;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+label:hover {
+    background-color: #666;
+}
+
+@keyframes fadeInPopup {
+    0% {
+        opacity: 0;
+        transform: scale(1.05);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.02);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
