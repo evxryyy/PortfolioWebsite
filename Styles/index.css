@@ -1,12 +1,20 @@
+/* Reset de base pour mobile */
+* {
+    box-sizing: border-box;
+}
+
 body {
     background-image: url("../Videos/background.gif");
-    background-size: cover; /* ★ Cette propriété est cruciale ★ */
+    background-size: cover;
     background-position: center;
-    background-attachment: fixed; /* Optionnel : fixe le fond */
+    background-attachment: fixed;
     background-color: #000000;
     background-repeat: no-repeat;
     opacity: 0;
-    animation: fadeInPopup 0.2s  cubic-bezier(0.39, 0.575, 0.565, 1) 0.2s forwards;
+    animation: fadeInPopup 0.2s cubic-bezier(0.39, 0.575, 0.565, 1) 0.2s forwards;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
 }
 
 .top-row_header_bar {
@@ -14,6 +22,12 @@ body {
     display: flex;
     border-radius: 8px;
     opacity: 0.8;
+    margin: 20px;
+    transition: opacity 0.2s ease;
+}
+
+.top-row_header_bar:hover{
+    opacity: 1;
 }
 
 .top-row_content {
@@ -21,10 +35,12 @@ body {
     display: flex;
     gap: 20px;
     width: 100%;
-    align-items: center; 
+    align-items: center;
 }
 
-.home-page {
+.home-page,
+.card-page,
+.contact-page {
     background-color: #0e0f0f;
     margin: 20px;
     display: flex;
@@ -34,18 +50,11 @@ body {
     gap: 20px;
     flex-direction: column;
     opacity: 0.8;
+    transition: opacity 0.2s ease;
 }
 
-.card-page {
-    background-color: #0e0f0f;
-    margin: 20px;
-    display: flex;
-    border-radius: 8px;
-    align-items: flex-start;
-    padding: 20px;
-    gap: 20px;
-    flex-direction: column;
-    opacity: 0.8;
+.home-page:hover,.card-page:hover,.contact-page:hover {
+    opacity: 1;
 }
 
 .card-subpage {
@@ -59,7 +68,6 @@ body {
     align-items: flex-start;
 }
 
-
 .card {
     min-width: 250px;
     min-height: 350px;
@@ -68,16 +76,9 @@ body {
     align-items: center;
 }
 
-.contact-page {
-    background-color: #0e0f0f;
-    margin: 20px;
-    display: flex;
-    border-radius: 8px;
-    align-items: flex-start;
-    padding: 20px;
-    gap: 20px;
-    flex-direction: column;
-    opacity: 0.8;
+.img-clickable{
+    cursor: pointer;
+    height: 250px;
 }
 
 .content-text {
@@ -105,10 +106,6 @@ body {
     text-align: left !important;
     display: block;
     align-self: flex-start;
-}
-
-.img-clickable{
-    cursor: pointer;
 }
 
 .github_content {
@@ -189,6 +186,74 @@ label {
 
 label:hover {
     background-color: #666;
+}
+
+/* Mobile support */
+@media (max-width: 768px) {
+    .top-row_header_bar {
+        margin: 10px;
+    }
+    
+    .top-row_content {
+        padding: 15px;
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    }
+    
+    .home-page,
+    .card-page,
+    .contact-page {
+        margin: 15px;
+        padding: 15px;
+    }
+    
+    .card-subpage {
+        padding: 15px;
+        gap: 15px;
+        justify-content: center;
+    }
+    
+    .card {
+        min-width: 200px;
+        min-height: 300px;
+    }
+    
+    .img-clickable {
+        height: 200px;
+        max-width: 100%; 
+    }
+    
+    .content-text,
+    .content-work-text {
+        padding: 6px 12px;
+        font-size: 14px;
+    }
+}
+
+/* Mobile support for smaller screen */
+@media (max-width: 480px) {
+    .top-row_content {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        gap: 10px;
+    }
+    
+    .github_content,
+    .roblox_content,
+    .version_content {
+        min-height: 44px;
+    }
+    
+    .card {
+        min-width: 150px;
+        min-height: 250px;
+    }
+    
+    .img-clickable {
+        height: 180px;
+    }
 }
 
 @keyframes fadeInPopup {
