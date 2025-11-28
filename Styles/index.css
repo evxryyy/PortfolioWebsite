@@ -336,6 +336,7 @@ label:hover {
         transform: translateX(-100%);
         opacity: 1;
         animation: slideOut 0.3s ease forwards;
+        background-color: #0e0f0f;
     }
 
     .sidebar.open {
@@ -403,6 +404,10 @@ label:hover {
     .card-page,
     .contact-page{
         opacity: 1;
+    }
+
+    .sidebar{
+        background-color: #0e0f0f;
     }
 
     .github_content,
