@@ -445,17 +445,21 @@ label:hover {
 @keyframes slideIn {
     0% {
         transform: translateX(-100%);
+        background-color: #0e0f0f !important;
     }
     100% {
         transform: translateX(0);
+        background-color: #0e0f0f !important;
     }
 }
 
 @keyframes slideOut {
     0% {
         transform: translateX(0);
+        background-color: #0e0f0f !important;
     }
     100% {
         transform: translateX(-100%);
+        background-color: #0e0f0f !important;
     }
 }
