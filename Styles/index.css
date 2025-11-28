@@ -88,8 +88,8 @@ body {
 
 .sidebar-toggle {
     position: fixed;
-    top: 20px;
-    left: 85%;
+    top: 80px;
+    left: 82%;
     z-index: 1001;
     background-color: #0e0f0f;
     border: none;
@@ -267,6 +267,12 @@ label:hover {
         margin-left: 270px;
         transition: margin-left 0.3s ease;
     }
+
+    .home-page,
+    .card-page,
+    .contact-page{
+        opacity: 1;
+    }
     
     .sidebar-toggle {
         display: none;
@@ -303,6 +309,12 @@ label:hover {
         justify-content: flex-start;
     }
     
+    .home-page,
+    .card-page,
+    .contact-page{
+        opacity: 1;
+    }
+
     .home-page,
     .card-page,
     .contact-page {
