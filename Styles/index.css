@@ -336,11 +336,12 @@ label:hover {
         transform: translateX(-100%);
         opacity: 1;
         animation: slideOut 0.3s ease forwards;
-        background-color: #0e0f0f;
+        background-color: #0e0f0f !important;
     }
 
     .sidebar.open {
         animation: slideIn 0.3s ease forwards;
+        background-color: #0e0f0f  !important;
     }
     
     .sidebar-toggle {
@@ -407,7 +408,7 @@ label:hover {
     }
 
     .sidebar{
-        background-color: #0e0f0f;
+        background-color: #0e0f0f !important;
     }
 
     .github_content,
