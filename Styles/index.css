@@ -89,7 +89,7 @@ body {
 .sidebar-toggle {
     position: fixed;
     top: 20px;
-    left: 20px;
+    left: 85%;
     z-index: 1001;
     background-color: #0e0f0f;
     border: none;
@@ -276,16 +276,18 @@ label:hover {
 @media (max-width: 768px) {
     .sidebar {
         transform: translateX(-100%);
+        opacity: 1;
+        animation: slideOut 0.3s ease forwards;
     }
-    
+
     .sidebar.open {
-        transform: translateX(0);
+        animation: slideIn 0.3s ease forwards;
     }
     
     .sidebar-toggle {
         display: block;
     }
-    
+
     .top-row_header_bar,
     .home-page,
     .card-page,
@@ -339,6 +341,12 @@ label:hover {
         gap: 10px;
     }
     
+    .home-page,
+    .card-page,
+    .contact-page{
+        opacity: 1;
+    }
+
     .github_content,
     .roblox_content,
     .version_content {
@@ -367,5 +375,23 @@ label:hover {
     100% {
         opacity: 1;
         transform: scale(1);
+    }
+}
+
+@keyframes slideIn {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideOut {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
     }
 }
