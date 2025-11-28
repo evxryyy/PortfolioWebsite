@@ -88,8 +88,8 @@ body {
 
 .sidebar-toggle {
     position: fixed;
-    top: 80px;
-    left: 82%;
+    top: 25px;
+    left: 80%;
     z-index: 1001;
     background-color: #0e0f0f;
     border: none;
@@ -259,7 +259,7 @@ label:hover {
         transform: translateX(0);
         position: fixed;
     }
-     
+    
     .top-row_header_bar,
     .home-page,
     .card-page,
