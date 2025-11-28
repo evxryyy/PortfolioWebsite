@@ -15,27 +15,128 @@ body {
     min-height: 100vh;
     margin: 0;
     padding: 0;
+    transition: margin-left 0.3s ease;
 }
 
-.top-row_header_bar {
+/* Sidebar */
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 250px;
     background-color: #0e0f0f;
-    display: flex;
-    border-radius: 8px;
     opacity: 0.8;
-    margin: 20px;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
     transition: opacity 0.2s ease;
+    z-index: 1000;
+    border-radius: 0 8px 8px 0;
 }
 
-.top-row_header_bar:hover{
+.sidebar:hover {
     opacity: 1;
 }
 
-.top-row_content {
+.sidebar.open {
+    transform: translateX(0);
+}
+
+.sidebar-content {
     padding: 20px;
     display: flex;
+    flex-direction: column;
     gap: 20px;
-    width: 100%;
+}
+
+.sidebar-header h3 {
+    color: white;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin: 0;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #333;
+}
+
+.sidebar-links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.sidebar-link {
+    display: flex;
     align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    opacity: 0.8;
+}
+
+.sidebar-link:hover .remove_bg {
+    filter: brightness(0) invert(0); 
+    background-color: #666;
+    opacity: 1;
+}
+
+.sidebar-link img {
+    opacity: 0.8;
+}
+
+.sidebar-toggle {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1001;
+    background-color: #0e0f0f;
+    border: none;
+    border-radius: 6px;
+    padding: 10px;
+    cursor: pointer;
+    opacity: 0.8;
+    transition: all 0.3s ease;
+    display: none;
+}
+
+.sidebar-toggle:hover {
+    opacity: 1;
+    background-color: #666;
+}
+
+
+.sidebar-bottom {
+    margin-top: auto; 
+    padding-top: 20px;
+    border-top: 1px solid #333;
+}
+
+.sidebar-footer h4 {
+    color: white;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin: 0 0 15px 0;
+    font-size: 14px;
+    opacity: 0.7;
+}
+
+.sidebar-bottom-links {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.sidebar-version {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    color: white;
+    border-radius: 6px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    opacity: 0.7;
+    font-size: 14px;
 }
 
 .home-page,
@@ -66,6 +167,11 @@ body {
     padding: 20px;
     opacity: 0.8;
     align-items: flex-start;
+    transition: opacity 0.2s ease;
+}
+
+.card-subpage:hover {
+    opacity: 1;
 }
 
 .card {
@@ -79,6 +185,11 @@ body {
 .img-clickable{
     cursor: pointer;
     height: 250px;
+    transition: transform 0.2s ease;
+}
+
+.img-clickable:hover {
+    transform: scale(1.05);
 }
 
 .content-text {
@@ -106,51 +217,6 @@ body {
     text-align: left !important;
     display: block;
     align-self: flex-start;
-}
-
-.github_content {
-    background-color: #0e0f0f;
-    display: flex;
-    border-radius: 8px;
-    align-items: center;
-    padding-left: 10px;
-    flex-direction: row;
-    opacity: 0.8;
-    transition: background-color 0.3s ease;
-}
-
-.github_content:hover{
-    background-color: #666;
-}
-
-.roblox_content {
-    background-color: #0e0f0f;
-    display: flex;
-    border-radius: 8px;
-    align-items: center;
-    padding-left: 10px;
-    flex-direction: row;
-    opacity: 0.8;
-    transition: background-color 0.3s ease;
-}
-
-.roblox_content:hover{
-    background-color: #666;
-}
-
-.version_content {
-    background-color: #0e0f0f;
-    display: flex;
-    border-radius: 8px;
-    align-items: center;
-    padding-left: 10px;
-    flex-direction: row;
-    opacity: 0.8;
-    transition: background-color 0.3s ease;
-}
-
-.version_content:hover {
-    background-color: #666; 
 }
 
 .empty {
@@ -188,9 +254,43 @@ label:hover {
     background-color: #666;
 }
 
-/* Mobile support */
+@media (min-width: 769px) {
+    .sidebar {
+        transform: translateX(0);
+        position: fixed;
+    }
+    
+    .top-row_header_bar,
+    .home-page,
+    .card-page,
+    .contact-page {
+        margin-left: 270px;
+        transition: margin-left 0.3s ease;
+    }
+    
+    .sidebar-toggle {
+        display: none;
+    }
+}
+
 @media (max-width: 768px) {
-    .top-row_header_bar {
+    .sidebar {
+        transform: translateX(-100%);
+    }
+    
+    .sidebar.open {
+        transform: translateX(0);
+    }
+    
+    .sidebar-toggle {
+        display: block;
+    }
+    
+    .top-row_header_bar,
+    .home-page,
+    .card-page,
+    .contact-page {
+        margin-left: 0;
         margin: 10px;
     }
     
@@ -204,7 +304,6 @@ label:hover {
     .home-page,
     .card-page,
     .contact-page {
-        margin: 15px;
         padding: 15px;
     }
     

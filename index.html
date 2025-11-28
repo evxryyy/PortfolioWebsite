@@ -4,46 +4,76 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="Styles/index.css">
+    <link rel="stylesheet" href="Styles/image_bg.css">
     <link rel="icon" href="Resources/site_icon.svg" type="image/svg+xml">
     <title>Evxry Portfolio</title>
 </head>
 
 <body>
-    <div class="top-row_header_bar">
-        <div class="top-row_content">
-            <div class="github_content">
-                <img width="24px" height="24px" src="Resources/github_icon.svg"/>
-                <a class="empty" href="https://github.com/evxryyy" target="_blank">Profile Github</a>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="sidebar-content">
+            <div class="sidebar-header">
+                <h3>Navigation</h3>
             </div>
-            <div class="roblox_content">
-                <img width="24px" height="24px" src="Resources/roblox_icon.svg"/>
-                <a class="empty" href="https://www.roblox.com/users/3813642140/profile" target="_blank">Profile Roblox</a>
+            <div class="sidebar-links">
+                <a href="#home-page" class="sidebar-link">
+                    <img class="remove_bg" src="Resources/home_icon.svg" width="20" height="20">
+                    <span>Home</span>
+                </a>
+                <a href="#card-page" class="sidebar-link">
+                    <img class="remove_bg" src="Resources/book_icon.svg" width="20" height="20">
+                    <span>Projects</span>
+                </a>
+                <a href="#contact-page" class="sidebar-link">
+                    <img class="remove_bg" src="Resources/contact_icon.svg" width="20" height="20">
+                    <span>Contact</span>
+                </a>
             </div>
-           <div class="version_content">
-                <img width="24px" height="24px" src="Resources/update_icon.svg"/>
-                <label class="empty">Version: 1.4</label>
-           </div>
+
+            <div class="sidebar-bottom">
+                <div class="sidebar-footer">
+                    <h4>Links</h4>
+                </div>
+                <div class="sidebar-bottom-links">
+                    <a href="https://github.com/evxryyy" class="sidebar-link" target="_blank">
+                        <img class="remove_bg" src="Resources/github_icon.svg" width="20" height="20">
+                        <span>GitHub</span>
+                    </a>
+                    <a href="https://www.roblox.com/users/3813642140/profile" class="sidebar-link" target="_blank">
+                        <img class="remove_bg" src="Resources/roblox_icon.svg" width="20" height="20">
+                        <span>Roblox</span>
+                    </a>
+                    <div class="sidebar-version">
+                        <img class="remove_bg" src="Resources/update_icon.svg" width="20" height="20">
+                        <span>Version 1.5</span>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 
-    <div class="home-page">
+    <button class="sidebar-toggle" onclick="toggleSidebar()">
+        <img src="Resources/menu_icon.svg" width="24" height="24">
+    </button>
+
+    <div class="home-page" id="home-page">
         <label class="content-text">
             <h2>Presentation of my portfolio.</h2>
         </label>
         <div class="presentation-div">
             <label class="content-text">
-                Hi, I'm evxry.I'm a Roblox developer with over 3 years of experience. 
-                I focus on building open-source libraries and developer tools aimed at improving workflow and performance.
-                <br>
-                In addition to Roblox development, I also work with C#. I create systems,
-                tools, and gameplay features across both Roblox and Unity projects. 
-                My goal is to provide clean, reliable, and reusable code that helps other developers 
-                build faster and more efficiently.
+                Hi, I'm Evxry.
+                <br><br>
+                I'm a Roblox developer with over 3 years of experience, specializing in open-source libraries and developer tools. I create core utilities and modules like Buffer designed to enhance workflow efficiency and optimize performance.
+                <br><br>
+                Beyond Roblox, I also work extensively with C#, developing systems, tools, and gameplay features for both Roblox and Unity environments. My focus is on delivering clean, reliable, and reusable code that empowers developers to build faster and more effectively.
             </label>
         </div>
     </div>
 
-    <div class="card-page">
+    <div class="card-page" id="card_page">
         <label class="content-text">
             <h2>My work</h2>
             <p>See card below and if you want to learn more click on the github button.</p>
@@ -61,7 +91,7 @@
         </div>
     </div>
 
-    <div class="contact-page">
+    <div class="contact-page" id="contact_page">
         <label class="content-text">
             <h2>Contact</h2>
             <p>Feel free to contact via discord !
@@ -70,6 +100,54 @@
             </p>
         </label>
     </div>
+
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.querySelector('.sidebar');
+            sidebar.classList.toggle('open');
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelector('.home-page').id = 'home';
+            document.querySelector('.card-page').id = 'work'; 
+            document.querySelector('.contact-page').id = 'contact-page';
+            
+            document.querySelectorAll('.sidebar-link').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    
+                    if (href.startsWith('#')) {
+                        e.preventDefault();
+                        const targetSection = document.querySelector(href);
+                        
+                        if (targetSection) {
+                            targetSection.scrollIntoView({ 
+                                behavior: 'smooth',
+                                block: 'start'
+                            });
+                            
+                            if (window.innerWidth <= 768) {
+                                document.querySelector('.sidebar').classList.remove('open');
+                            }
+                        }
+                    }
+                });
+            });
+        });
+
+        document.addEventListener('click', function(event) {
+            const sidebar = document.querySelector('.sidebar');
+            const toggleBtn = document.querySelector('.sidebar-toggle');
+            
+            if (window.innerWidth <= 768 && 
+                sidebar.classList.contains('open') &&
+                !sidebar.contains(event.target) && 
+                event.target !== toggleBtn && 
+                !toggleBtn.contains(event.target)) {
+                sidebar.classList.remove('open');
+            }
+        });
+    </script>
 
 </body>
 

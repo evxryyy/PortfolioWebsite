@@ -1,0 +1,6 @@
+.remove_bg {
+    background: transparent !important;
+    mix-blend-mode: multiply;
+    filter: brightness(0) invert(1); 
+    transition: filter 0.2s ease;
+}
