@@ -2088,26 +2088,25 @@ function GetAttackRequest(is_guard)
             end
         end
     end
-	-- Ultimate avec L3 + R3 OU ACTION_ARM_ULTRA
-	if env(ActionRequest, ACTION_ARM_ULTRA) == TRUE or (env(ActionRequest, ACTION_ARM_L3) == TRUE and env(ActionRequest, ACTION_ARM_R3) == TRUE) then
-	    if env(GetSpEffectID, 709300) == TRUE and env(GetSpEffectID, 102065) == FALSE and env(IsCOMPlayer) == FALSE then
-	        if env(GetHeroID) == HERO_ATTACKER and env(ActionDuration, ACTION_ARM_SKILL) > 0 then
-	            return ATTACK_REQUEST_INVALID
-	        else
-	            act(DebugLogOutput, "ウルト実行")
-	            return ATTACK_REQUEST_ULTRA
-	        end
-	    elseif env(GetSpEffectID, 102065) == TRUE or env(IsCOMPlayer) == TRUE then
-	        return ATTACK_REQUEST_INVALID
-	    elseif env(IsUltimateArtReady) == FALSE then
-	        return ATTACK_REQUEST_INVALID
-	    elseif env(GetHeroID) == HERO_ATTACKER and env(ActionDuration, ACTION_ARM_SKILL) > 0 then
-	        return ATTACK_REQUEST_INVALID
-	    else
-	        act(DebugLogOutput, "ウルト実行")
-	        return ATTACK_REQUEST_ULTRA
-	    end
-	end
+    if env(ActionRequest, ACTION_ARM_ULTRA) == TRUE then
+		if env(GetSpEffectID, 709300) == TRUE and env(GetSpEffectID, 102065) == FALSE and env(IsCOMPlayer) == FALSE then
+			if env(GetHeroID) == HERO_ATTACKER and env(ActionDuration, ACTION_ARM_SKILL) > 0 then
+				return ATTACK_REQUEST_INVALID
+			else
+				act(DebugLogOutput, "ウルト実行")
+				return ATTACK_REQUEST_ULTRA
+			end
+        elseif env(GetSpEffectID, 102065) == TRUE or env(IsCOMPlayer) == TRUE then
+            return ATTACK_REQUEST_INVALID
+        elseif env(IsUltimateArtReady) == FALSE then
+            return ATTACK_REQUEST_INVALID
+        elseif env(GetHeroID) == HERO_ATTACKER and env(ActionDuration, ACTION_ARM_SKILL) > 0 then
+            return ATTACK_REQUEST_INVALID
+        else
+            act(DebugLogOutput, "ウルト実行")
+            return ATTACK_REQUEST_ULTRA
+        end
+    end
     if request_r2 == TRUE then
         if env(ActionDuration, ACTION_ARM_ACTION) > 0 then
             if env(IsUltimateArtReady) == FALSE or env(GetSpEffectID, 102065) == TRUE or env(IsCOMPlayer) == TRUE then
