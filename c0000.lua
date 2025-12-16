@@ -2094,7 +2094,7 @@ function GetAttackRequest(is_guard)
 				return ATTACK_REQUEST_INVALID
 			else
 				act(DebugLogOutput, "ウルト実行")
-				return ATTACK_REQUEST_ULTRA
+				return ATTACK_REQUEST_ULTRA -- Old ULTRA
 			end
         elseif env(GetSpEffectID, 102065) == TRUE or env(IsCOMPlayer) == TRUE then
             return ATTACK_REQUEST_INVALID
@@ -2104,9 +2104,10 @@ function GetAttackRequest(is_guard)
             return ATTACK_REQUEST_INVALID
         else
             act(DebugLogOutput, "ウルト実行")
-            return ATTACK_REQUEST_ULTRA
+            return ATTACK_REQUEST_ULTRA -- Old ULTRA
         end
     end
+
     if request_r2 == TRUE then
         if env(ActionDuration, ACTION_ARM_ACTION) > 0 then
             if env(IsUltimateArtReady) == FALSE or env(GetSpEffectID, 102065) == TRUE or env(IsCOMPlayer) == TRUE then
@@ -2144,6 +2145,7 @@ function GetAttackRequest(is_guard)
             end
         end
     end
+
     if request_l1 == TRUE then
         if env(IsPrecisionShoot) == TRUE then
             return ATTACK_REQUEST_INVALID
